@@ -45,7 +45,7 @@ Follow these minimal steps to get the project running in Docker or locally.
 
 ### Download the repository
 # Clone the repo (replace with your fork or upstream URL)
-git clone https://github.com/<your-org>/fraud-rule-engine-service.git
+git clone https://github.com/Mabhelas/Fraud-Rule-Engine-Service.git
 cd fraud-rule-engine-service
 
 ### Environment variables
