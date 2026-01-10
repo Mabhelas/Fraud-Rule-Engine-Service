@@ -1,0 +1,6 @@
+@Fraud_Rule_Engine_Service_HostAddress = http://localhost:5290
+
+GET {{Fraud_Rule_Engine_Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

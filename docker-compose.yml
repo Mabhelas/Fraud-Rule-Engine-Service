@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: fraud-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fraud-rule-engine:local
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      # Provide Mongo connection if you want persistence; otherwise app uses in-memory fallback
+      - MongoDbSettings__ConnectionString=mongodb://mongo:27017
+      - JwtSettings__SigningKey=ChangeThisToASecureKeyInProd
+      - JwtSettings__Issuer=fraud-issuer
+      - JwtSettings__Audience=fraud-audience
+    ports:
+      - "8080:80"
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:

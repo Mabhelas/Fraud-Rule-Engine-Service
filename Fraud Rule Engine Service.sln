@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fraud Rule Engine Service", "Fraud Rule Engine Service\Fraud Rule Engine Service.csproj", "{04F061AC-16C3-4720-885D-72AC26E7139A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudRuleEngineService.Tests", "FraudRuleEngineService.Tests\FraudRuleEngineService.Tests.csproj", "{AC8BC158-133D-44A6-A029-AE245129883A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04F061AC-16C3-4720-885D-72AC26E7139A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F061AC-16C3-4720-885D-72AC26E7139A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F061AC-16C3-4720-885D-72AC26E7139A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F061AC-16C3-4720-885D-72AC26E7139A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC8BC158-133D-44A6-A029-AE245129883A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8BC158-133D-44A6-A029-AE245129883A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC8BC158-133D-44A6-A029-AE245129883A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC8BC158-133D-44A6-A029-AE245129883A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {179BBD4E-553E-4957-B262-3C7921FEA4CD}
+	EndGlobalSection
+EndGlobal
