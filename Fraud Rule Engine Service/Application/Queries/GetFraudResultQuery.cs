@@ -1,4 +1,3 @@
-using System;
 using MediatR;
 using Fraud_Rule_Engine_Service.Domain;
 

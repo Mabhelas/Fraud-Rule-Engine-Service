@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Fraud_Rule_Engine_Service.Domain
 {
     public class TransactionEvent

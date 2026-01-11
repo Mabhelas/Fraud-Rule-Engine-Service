@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
 using Fraud_Rule_Engine_Service.Application.Queries;
 using Fraud_Rule_Engine_Service.Repositories;

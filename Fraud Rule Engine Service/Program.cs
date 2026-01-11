@@ -2,21 +2,14 @@ using Fraud_Rule_Engine_Service.Application.Services;
 using Fraud_Rule_Engine_Service.Infrastructure;
 using Fraud_Rule_Engine_Service.Repositories;
 using Fraud_Rule_Engine_Service.Services;
-using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using System;
 using System.Text;
-using System.Threading.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Serilog (simple console sink — extend in production)
+// Serilog
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
@@ -96,7 +89,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = key,
-            // adjust RoleClaimType if your token uses "roles" claim name
             RoleClaimType = "roles"
         };
 

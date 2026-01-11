@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Fraud_Rule_Engine_Service.Domain;
 
 namespace Fraud_Rule_Engine_Service.Repositories

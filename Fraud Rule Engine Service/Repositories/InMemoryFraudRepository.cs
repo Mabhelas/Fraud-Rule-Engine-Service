@@ -1,10 +1,5 @@
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Fraud_Rule_Engine_Service.Domain;
-using Fraud_Rule_Engine_Service.Repositories;
 
 namespace Fraud_Rule_Engine_Service.Repositories
 {

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Fraud_Rule_Engine_Service.Domain;
 using Fraud_Rule_Engine_Service.Repositories;
 
@@ -12,9 +8,8 @@ namespace Fraud_Rule_Engine_Service.Application.Services
     {
         private readonly IFraudRepository _repository;
 
-        // Configurable thresholds (move to IOptions in next iteration)
         private readonly decimal _highAmountThreshold = 10_000m;
-        private readonly string[] _blacklistedMerchants = new[] { "ShadyMerchant", "BadShop LLC" };
+        private readonly string[] _blacklistedMerchants = new[] { "ShadyMerchant", "BadShop" };
         private readonly TimeSpan _rapidWindow = TimeSpan.FromMinutes(1);
         private readonly int _rapidThreshold = 3;
 
@@ -25,7 +20,6 @@ namespace Fraud_Rule_Engine_Service.Application.Services
 
         public async Task<FraudResult> ExecuteRulesAsync(TransactionEvent tx)
         {
-            // persist raw transaction
             await _repository.SaveTransactionAsync(tx);
 
             var matched = new List<string>();

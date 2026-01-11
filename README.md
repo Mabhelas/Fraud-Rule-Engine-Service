@@ -30,8 +30,7 @@ Rule engine design
 ------------------
 - Rules live in the Application/Services layer (FraudOrchestrator). Each rule is a unit of logic that returns whether it matched.
 - Results are scored simply by matched rules count. Each matched rule is recorded to support explainability and investigations.
-- Rules are intentionally simple and configurable; move thresholds and lists to IOptions (appsettings / secret store) for production configuration and dynamic tuning.
-- For more advanced needs, the orchestrator can call a rules-evaluation microengine (Drools-style or a dynamic rule store) or incorporate ML scoring in a risk-model step.
+- Rules are intentionally simple and configurable.
 
 ## Quick start — download & run
 
@@ -70,16 +69,20 @@ docker run -e EnableSwagger=true -e JwtSettings__SigningKey=w5sbqVHXhDJ6gCSqdSIx
 
 Run with a local MongoDB instance (replace the connection string accordingly):
 docker run -e "EnableSwagger=true" -e "JwtSettings__SigningKey=w5sbqVHXhDJ6gCSqdSIxUrfXciZXIo4WMCNp1RFX6Kc=" -e "MongoDbSettings__ConnectionString=mongodb://host.docker.internal:27017" -p 8080:80 fraud-service
-# API available at http://localhost:8080
+# API available at http://localhost:8080 running with Swagger UI
 
+Authentication and Authorization is required before you can access the API endpoints.
+# Authentication:
+use the endpoint http://localhost:8080/api/auth/token
+copy the response access_token value without quotes
 
-### Run locally (dotnet)
-# Restore, build and run the API
-export JwtSettings__SigningKey="your-test-signing-key"
-export MongoDbSettings__ConnectionString=""
-dotnet restore
-dotnet build -c Release
-dotnet run --project "Fraud Rule Engine Service" --urls "https://localhost:5001;http://localhost:5000"
+# Authorization:
+Click on the "Authorize" button in Swagger UI and enter the copied token
+
+##Example fradud rules to test:
+- High Amount Rule: Transactions over R10,000 are flagged.
+- Blacklisted Merchant Rule: Transactions with merchants "ShadyMerchant" or "BadShop" are flagged.
+- Rapid Succession Rule: More than 3 transactions within 1 minute are flagged.
 
 # Run tests
 dotnet test

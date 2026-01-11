@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using MediatR;
 using Fraud_Rule_Engine_Service.Domain;
 

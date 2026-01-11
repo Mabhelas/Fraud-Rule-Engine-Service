@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using Fraud_Rule_Engine_Service.Domain;
@@ -22,7 +18,6 @@ namespace Fraud_Rule_Engine_Service.Infrastructure
             _txCol = db.GetCollection<TransactionEvent>(settings.TransactionsCollection);
             _resCol = db.GetCollection<FraudResult>(settings.ResultsCollection);
 
-            // Ensure indexes in production-ready deployments (example)
             _txCol.Indexes.CreateOne(new CreateIndexModel<TransactionEvent>(
                 Builders<TransactionEvent>.IndexKeys.Ascending(t => t.AccountId).Ascending(t => t.Timestamp)));
             _resCol.Indexes.CreateOne(new CreateIndexModel<FraudResult>(
